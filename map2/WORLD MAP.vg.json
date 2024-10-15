@@ -1,0 +1,553 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/map2/updated_combined_data.csv"
+  },
+  "params": [
+    {
+      "name": "zoom_level",
+      "value": 225,
+      "bind": {
+        "input": "range",
+        "min": 100,
+        "max": 400,
+        "step": 5,
+        "name": "Zoom: "
+      }
+    }
+  ],
+  "vconcat": [
+    {
+      "_comment": "this is the world map section",
+      "width": "container",
+      "height": 500,
+      "title": "Global Distribution of Social Service Payments per 10,000 Population",
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [
+          -80,
+          0,
+          0
+        ],
+        "scale": {
+          "expr": "zoom_level"
+        },
+        "center": [
+          0,
+          70
+        ]
+      },
+      "layer": [
+        {
+          "_comment": "Layer for oceans",
+          "data": {
+            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "oceans"
+            }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": "skyblue"
+          }
+        },
+        {
+          "_comment": "Layer for graticules",
+          "data": {
+            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "ne_110m_graticules_30"
+            }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": null,
+            "stroke": "lightgray"
+          }
+        },
+        {
+          "_comment": "Layer for background",
+          "data": {
+            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "ne_110m_admin_0_countries"
+            }
+          },
+          "transform": [
+            {
+              "calculate": "'Data Not Available ' + datum.properties.NAME",
+              "as": "note"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "lightgray",
+            "strokeWidth": 0.6
+          },
+          "encoding": {
+            "tooltip": {
+              "field": "note"
+            }
+          }
+        },
+        {
+          "_comment": "Layer for actual countries colors",
+          "data": {
+            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "ne_110m_admin_0_countries"
+            }
+          },
+          "params": [
+            {
+              "name": "country_selection",
+              "select": {
+                "type": "point",
+                "on": "click"
+              }
+            }
+          ],
+          "transform": [
+            {
+              "lookup": "properties.NAME",
+              "from": {
+                "data": {
+                  "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/map2/updated_combined_data.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                },
+                "key": "Country of Birth",
+                "fields": [
+                  "Country of Birth",
+                  "ABSTUDY (Living allowance)",
+                  "ABSTUDY (Non-living allowance)",
+                  "Age Pension",
+                  "Austudy",
+                  "Carer Allowance",
+                  "Carer Allowance (Child Health Care Card only)",
+                  "Carer Payment",
+                  "Commonwealth Rent Assistance",
+                  "Commonwealth Seniors Health Card",
+                  "Disability Support Pension",
+                  "Family Tax Benefit A",
+                  "Family Tax Benefit B",
+                  "Health Care Card",
+                  "JobSeeker Payment",
+                  "Low Income Card",
+                  "Parenting Payment Partnered",
+                  "Parenting Payment Single",
+                  "Pension Concession Card",
+                  "Special Benefit",
+                  "Youth Allowance (other)",
+                  "Youth Allowance (student and apprentice)",
+                  "population"
+                ]
+              }
+            },
+            {
+              "calculate": "(parseFloat(datum['ABSTUDY (Living allowance)']) + parseFloat(datum['ABSTUDY (Non-living allowance)']) + parseFloat(datum['Age Pension']) + parseFloat(datum['Austudy']) + parseFloat(datum['Carer Allowance']) + parseFloat(datum['Carer Allowance (Child Health Care Card only)']) + parseFloat(datum['Carer Payment']) + parseFloat(datum['Commonwealth Rent Assistance']) + parseFloat(datum['Commonwealth Seniors Health Card']) + parseFloat(datum['Disability Support Pension']) + parseFloat(datum['Family Tax Benefit A']) + parseFloat(datum['Family Tax Benefit B']) + parseFloat(datum['Health Care Card']) + parseFloat(datum['JobSeeker Payment']) + parseFloat(datum['Low Income Card']) + parseFloat(datum['Parenting Payment Partnered']) + parseFloat(datum['Parenting Payment Single']) + parseFloat(datum['Pension Concession Card']) + parseFloat(datum['Special Benefit']) + parseFloat(datum['Youth Allowance (other)']) + parseFloat(datum['Youth Allowance (student and apprentice)']))",
+              "as": "Total Count"
+            },
+            {
+              "calculate": "(parseFloat(datum['ABSTUDY (Living allowance)']) + parseFloat(datum['ABSTUDY (Non-living allowance)']) + parseFloat(datum['Age Pension']) + parseFloat(datum['Austudy']) + parseFloat(datum['Carer Allowance']) + parseFloat(datum['Carer Allowance (Child Health Care Card only)']) + parseFloat(datum['Carer Payment']) + parseFloat(datum['Commonwealth Rent Assistance']) + parseFloat(datum['Commonwealth Seniors Health Card']) + parseFloat(datum['Disability Support Pension']) + parseFloat(datum['Family Tax Benefit A']) + parseFloat(datum['Family Tax Benefit B']) + parseFloat(datum['Health Care Card']) + parseFloat(datum['JobSeeker Payment']) + parseFloat(datum['Low Income Card']) + parseFloat(datum['Parenting Payment Partnered']) + parseFloat(datum['Parenting Payment Single']) + parseFloat(datum['Pension Concession Card']) + parseFloat(datum['Special Benefit']) + parseFloat(datum['Youth Allowance (other)']) + parseFloat(datum['Youth Allowance (student and apprentice)']))/parseFloat(datum['population']) * 10000",
+              "as": "Count per 10,000 population"
+            }
+          ],
+          "mark": {
+            "type": "geoshape"
+          },
+          "encoding": {
+            "opacity": {
+              "condition": {
+                "param": "country_selection",
+                "value": 1,
+                "empty": false
+              },
+              "value": 0.6
+            },
+            "strokeWidth": {
+              "condition": {
+                "param": "country_selection",
+                "value": 1,
+                "empty": false
+              },
+              "value": 0.6
+            },
+            "stroke": {
+              "condition": {
+                "param": "country_selection",
+                "value": "black",
+                "empty": false
+              },
+              "value": "white"
+            },
+            "color": {
+              "field": "Count per 10,000 population",
+              "type": "quantitative",
+              "title": "Count per 10,000",
+              "scale": {
+                "type": "log",
+                "domain": [
+                  1,
+                  10,
+                  100,
+                  1000,
+                  10000
+                ],
+                "range": [
+                  "#d9f0a3",
+                  "#addd8e",
+                  "#78c679",
+                  "#31a354",
+                  "#006837"
+                ]
+              }
+            },
+            "tooltip": [
+              {
+                "field": "properties.NAME",
+                "type": "nominal",
+                "title": "Country Name "
+              },
+              {
+                "field": "Count per 10,000 population",
+                "type": "nominal",
+                "title": "Count per 10,000 population",
+                "format": ".2f"
+              },
+              {
+                "field": "Total Count",
+                "type": "quantitative",
+                "title": "Total Count"
+              }
+            ]
+          }
+          
+        },
+        {
+          "_comment_annotation": "New annotation layer for Australia",
+          "data": {
+            "values": [
+              {
+                "longitude": 150,
+                "latitude": -22,
+                "text_annotation": "Australia has the highest count"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 0,
+            "dy": 0,
+            "fontStyle": "italic",
+            "fontSize": 10,
+            "fontWeight": "bold",
+            "color": "red"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "text_annotation"
+            }
+          }
+        },
+        {
+          "_comment": "Text for countries",
+          "data": {
+            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "ne_110m_admin_0_countries"
+            }
+          },
+          "transform": [
+            {
+              "lookup": "properties.NAME",
+              "from": {
+                "data": {
+                  "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/map2/countries_mapinfo.csv"
+                },
+                "key": "name",
+                "fields": [
+                  "latitude",
+                  "longitude"
+                ]
+              }
+            },
+            {
+              "filter": "datum.latitude != null && datum.longitude != null"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "properties.NAME",
+              "type": "nominal"
+            },
+            "opacity": {
+              "condition": {
+                "param": "country_selection",
+                "value": 1,
+                "empty": false
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": "container",
+      "height": 100,
+      "title": "Breakdown of Social Service Payments by Benefit Type for Selected Country (Default Total)",
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.NAME",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/map2/map2_updated.csv",
+              "format": {
+                "type": "csv"
+              }
+            },
+            "key": "Country of Birth",
+            "fields": [
+              "Country of Birth",
+              "ABSTUDY 1",
+              "ABSTUDY 2",
+              "Age Pension",
+              "Austudy",
+              "Carer Allowance 1",
+              "Carer Allowance 2",
+              "Carer Payment",
+              "Rent Assistance",
+              "Seniors Health Card",
+              "Disability Pension",
+              "Family Benefit A",
+              "Family Benefit B",
+              "Health Care Card",
+              "JobSeeker Payment",
+              "Low Income Card",
+              "Parenting Pay 1",
+              "Parenting Pay 2",
+              "Pensioner Concession",
+              "Special Benefit",
+              "Youth Allowance 1",
+              "Youth Allowance 2"
+            ]
+          }
+        },
+        {
+          "calculate": "isValid(datum['Country of Birth'])  ? datum['Country of Birth'] : 'Total'",
+          "as": "CountryOfBirthFinal"
+        },
+        {
+          "calculate": "isValid(datum['ABSTUDY 1']) ? datum['ABSTUDY 1'] : 7485",
+          "as": "ABSTUDY 1"
+        },
+        {
+          "calculate": "isValid(datum['ABSTUDY 2']) ? datum['ABSTUDY 2'] : 19210",
+          "as": "ABSTUDY 2"
+        },
+        {
+          "calculate": "isValid(datum['Age Pension']) ? datum['Age Pension'] : 2582990",
+          "as": "Age Pension"
+        },
+        {
+          "calculate": "isValid(datum['Austudy']) ? datum['Austudy'] : 20820",
+          "as": "Austudy"
+        },
+        {
+          "calculate": "isValid(datum['Carer Allowance 1']) ? datum['Carer Allowance 1'] : 646720",
+          "as": "Carer Allowance 1"
+        },
+        {
+          "calculate": "isValid(datum['Carer Allowance 2']) ? datum['Carer Allowance 2'] : 8080",
+          "as": "Carer Allowance 2"
+        },
+        {
+          "calculate": "isValid(datum['Carer Payment']) ? datum['Carer Payment'] : 306985",
+          "as": "Carer Payment"
+        },
+        {
+          "calculate": "isValid(datum['Rent Assistance']) ? datum['Rent Assistance'] : 1295005",
+          "as": "Rent Assistance"
+        },
+        {
+          "calculate": "isValid(datum['Seniors Health Card']) ? datum['Seniors Health Card'] : 519260",
+          "as": "Seniors Health Card"
+        },
+        {
+          "calculate": "isValid(datum['Disability Pension']) ? datum['Disability Pension'] : 788785",
+          "as": "Disability Pension"
+        },
+        {
+          "calculate": "isValid(datum['Family Benefit A']) ? datum['Family Benefit A'] : 1267510",
+          "as": "Family Benefit A"
+        },
+        {
+          "calculate": "isValid(datum['Family Benefit B']) ? datum['Family Benefit B'] : 996785",
+          "as": "Family Benefit B"
+        },
+        {
+          "calculate": "isValid(datum['Health Care Card']) ? datum['Health Care Card'] : 1271240",
+          "as": "Health Care Card"
+        },
+        {
+          "calculate": "isValid(datum['JobSeeker Payment']) ? datum['JobSeeker Payment'] : 806715",
+          "as": "JobSeeker Payment"
+        },
+        {
+          "calculate": "isValid(datum['Low Income Card']) ? datum['Low Income Card'] : 160290",
+          "as": "Low Income Card"
+        },
+        {
+          "calculate": "isValid(datum['Parenting Pay 1']) ? datum['Parenting Pay 1'] : 57685",
+          "as": "Parenting Pay 1"
+        },
+        {
+          "calculate": "isValid(datum['Parenting Pay 2']) ? datum['Parenting Pay 2'] : 309370",
+          "as": "Parenting Pay 2"
+        },
+        {
+          "calculate": "isValid(datum['Pensioner Concession']) ? datum['Pensioner Concession'] : 4360090",
+          "as": "Pensioner Concession"
+        },
+        {
+          "calculate": "isValid(datum['Special Benefit']) ? datum['Special Benefit'] : 6565",
+          "as": "Special Benefit"
+        },
+        {
+          "calculate": "isValid(datum['Youth Allowance 1']) ? datum['Youth Allowance 1'] : 85505",
+          "as": "Youth Allowance 1"
+        },
+        {
+          "calculate": "isValid(datum['Youth Allowance 2']) ? datum['Youth Allowance 2'] : 121850",
+          "as": "Youth Allowance 2"
+        },
+        {
+          "filter": "datum.CountryOfBirthFinal != null && datum['CountryOfBirthFinal'] != 'undefined'"
+        },
+        {
+          "filter": {
+            "param": "country_selection",
+            "empty": true
+          }
+        },
+        {
+          "fold": [
+            "ABSTUDY 1",
+            "ABSTUDY 2",
+            "Age Pension",
+            "Austudy",
+            "Carer Allowance 1",
+            "Carer Allowance 2",
+            "Carer Payment",
+            "Rent Assistance",
+            "Seniors Health Card",
+            "Disability Pension",
+            "Family Benefit A",
+            "Family Benefit B",
+            "Health Care Card",
+            "JobSeeker Payment",
+            "Low Income Card",
+            "Parenting Pay 1",
+            "Parenting Pay 2",
+            "Pensioner Concession",
+            "Special Benefit",
+            "Youth Allowance 1",
+            "Youth Allowance 2"
+          ],
+          "as": [
+            "Payment Type",
+            "Total Count"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "bar",
+        "color": "#addd8e"
+      },
+      "encoding": {
+        "x": {
+          "field": "Payment Type",
+          "type": "nominal",
+          "title": "Payment Type",
+          "axis": {
+            "labelAngle": -45
+          },
+          "sort": "-y"
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "Total Count",
+          "type": "quantitative",
+          "title": "Total Count",
+          "axis": {
+            "format": "e"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Payment Type",
+            "type": "nominal",
+            "title": "Payment Type"
+          },
+          {
+            "field": "Total Count",
+            "type": "nominal",
+            "title": "Total Count"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 16
+    },
+    "axis": {
+      "labelFontSize": 8,
+      "titleFontSize": 10
+    },
+    "padding": {
+      "left": 20,
+      "right": 20,
+      "top": 10,
+      "bottom": 10
+    }
+  }
+}

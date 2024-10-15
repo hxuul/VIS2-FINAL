@@ -1,0 +1,479 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Area chart showing the count across different age groups, and a bar chart for total count per state.",
+  "params": [
+    {
+      "name": "state_selection",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Australian Capital Territory",
+          "New South Wales",
+          "Northern Territory",
+          "Queensland",
+          "South Australia",
+          "Tasmania",
+          "Victoria",
+          "Western Australia"
+        ],
+        "labels": [
+          "Show All",
+          "Australian Capital Territory",
+          "New South Wales",
+          "Northern Territory",
+          "Queensland",
+          "South Australia",
+          "Tasmania",
+          "Victoria",
+          "Western Australia"
+        ],
+        "name": "State Selection"
+      }
+    }
+  ],
+  "vconcat": [
+    {
+      "width": "container",
+      "height": 300,
+      "data": {
+        "values": [
+          {
+            "State": "Australian Capital Territory",
+            "Age Group": "66-69",
+            "Count": 2695
+          },
+          {
+            "State": "Australian Capital Territory",
+            "Age Group": "70-74",
+            "Count": 6255
+          },
+          {
+            "State": "Australian Capital Territory",
+            "Age Group": "75-79",
+            "Count": 6460
+          },
+          {
+            "State": "Australian Capital Territory",
+            "Age Group": "80-84",
+            "Count": 4820
+          },
+          {
+            "State": "Australian Capital Territory",
+            "Age Group": "85-89",
+            "Count": 3120
+          },
+          {
+            "State": "Australian Capital Territory",
+            "Age Group": "90 and over",
+            "Count": 1710
+          },
+          {
+            "State": "New South Wales",
+            "Age Group": "66-69",
+            "Count": 104160
+          },
+          {
+            "State": "New South Wales",
+            "Age Group": "70-74",
+            "Count": 208705
+          },
+          {
+            "State": "New South Wales",
+            "Age Group": "75-79",
+            "Count": 197535
+          },
+          {
+            "State": "New South Wales",
+            "Age Group": "80-84",
+            "Count": 141675
+          },
+          {
+            "State": "New South Wales",
+            "Age Group": "85-89",
+            "Count": 90965
+          },
+          {
+            "State": "New South Wales",
+            "Age Group": "90 and over",
+            "Count": 51890
+          },
+          {
+            "State": "Northern Territory",
+            "Age Group": "66-69",
+            "Count": 2030
+          },
+          {
+            "State": "Northern Territory",
+            "Age Group": "70-74",
+            "Count": 3535
+          },
+          {
+            "State": "Northern Territory",
+            "Age Group": "75-79",
+            "Count": 2570
+          },
+          {
+            "State": "Northern Territory",
+            "Age Group": "80-84",
+            "Count": 1575
+          },
+          {
+            "State": "Northern Territory",
+            "Age Group": "85-89",
+            "Count": 690
+          },
+          {
+            "State": "Northern Territory",
+            "Age Group": "90 and over",
+            "Count": 315
+          },
+          {
+            "State": "Queensland",
+            "Age Group": "66-69",
+            "Count": 73835
+          },
+          {
+            "State": "Queensland",
+            "Age Group": "70-74",
+            "Count": 147430
+          },
+          {
+            "State": "Queensland",
+            "Age Group": "75-79",
+            "Count": 134875
+          },
+          {
+            "State": "Queensland",
+            "Age Group": "80-84",
+            "Count": 90710
+          },
+          {
+            "State": "Queensland",
+            "Age Group": "85-89",
+            "Count": 51820
+          },
+          {
+            "State": "Queensland",
+            "Age Group": "90 and over",
+            "Count": 27875
+          },
+          {
+            "State": "South Australia",
+            "Age Group": "66-69",
+            "Count": 28880
+          },
+          {
+            "State": "South Australia",
+            "Age Group": "70-74",
+            "Count": 57225
+          },
+          {
+            "State": "South Australia",
+            "Age Group": "75-79",
+            "Count": 54285
+          },
+          {
+            "State": "South Australia",
+            "Age Group": "80-84",
+            "Count": 38325
+          },
+          {
+            "State": "South Australia",
+            "Age Group": "85-89",
+            "Count": 24770
+          },
+          {
+            "State": "South Australia",
+            "Age Group": "90 and over",
+            "Count": 14850
+          },
+          {
+            "State": "Tasmania",
+            "Age Group": "66-69",
+            "Count": 10080
+          },
+          {
+            "State": "Tasmania",
+            "Age Group": "70-74",
+            "Count": 20095
+          },
+          {
+            "State": "Tasmania",
+            "Age Group": "75-79",
+            "Count": 18160
+          },
+          {
+            "State": "Tasmania",
+            "Age Group": "80-84",
+            "Count": 12775
+          },
+          {
+            "State": "Tasmania",
+            "Age Group": "85-89",
+            "Count": 7385
+          },
+          {
+            "State": "Tasmania",
+            "Age Group": "90 and over",
+            "Count": 3675
+          },
+          {
+            "State": "Victoria",
+            "Age Group": "66-69",
+            "Count": 76905
+          },
+          {
+            "State": "Victoria",
+            "Age Group": "70-74",
+            "Count": 156890
+          },
+          {
+            "State": "Victoria",
+            "Age Group": "75-79",
+            "Count": 150535
+          },
+          {
+            "State": "Victoria",
+            "Age Group": "80-84",
+            "Count": 110285
+          },
+          {
+            "State": "Victoria",
+            "Age Group": "85-89",
+            "Count": 71900
+          },
+          {
+            "State": "Victoria",
+            "Age Group": "90 and over",
+            "Count": 41345
+          },
+          {
+            "State": "Western Australia",
+            "Age Group": "66-69",
+            "Count": 33880
+          },
+          {
+            "State": "Western Australia",
+            "Age Group": "70-74",
+            "Count": 68275
+          },
+          {
+            "State": "Western Australia",
+            "Age Group": "75-79",
+            "Count": 61640
+          },
+          {
+            "State": "Western Australia",
+            "Age Group": "80-84",
+            "Count": 43000
+          },
+          {
+            "State": "Western Australia",
+            "Age Group": "85-89",
+            "Count": 26880
+          },
+          {
+            "State": "Western Australia",
+            "Age Group": "90 and over",
+            "Count": 14745
+          },
+          {
+            "State": "Total",
+            "Age Group": "66-69",
+            "Count": 337350
+          },
+          {
+            "State": "Total",
+            "Age Group": "70-74",
+            "Count": 687520
+          },
+          {
+            "State": "Total",
+            "Age Group": "75-79",
+            "Count": 648345
+          },
+          {
+            "State": "Total",
+            "Age Group": "80-84",
+            "Count": 460040
+          },
+          {
+            "State": "Total",
+            "Age Group": "85-89",
+            "Count": 288250
+          },
+          {
+            "State": "Total",
+            "Age Group": "90 and over",
+            "Count": 161485
+          }
+        ]
+      },
+      "params": [
+        {
+          "name": "State_highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "State"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
+      "transform": [
+        {
+          "filter": "state_selection == 'All' || datum['State'] == state_selection"
+        }
+      ],
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "Age Group",
+          "type": "ordinal",
+          "title": "Age Group",
+          "sort": [
+            "66-69",
+            "70-74",
+            "75-79",
+            "80-84",
+            "85-89",
+            "90 and over"
+          ]
+        },
+        "y": {
+          "field": "Count",
+          "type": "quantitative",
+          "title": "Count"
+        },
+        "color": {
+          "field": "State",
+          "type": "nominal",
+          "title": "State",
+          "sort": [
+            "New South Wales",
+            "Victoria",
+            "Queensland",
+            "South Australia",
+            "Western Australia",
+            "Tasmania",
+            "Northern Territory",
+            "Australian Capital Territory",
+            "Total"
+          ]
+        },
+        "opacity": {
+          "condition": {
+            "param": "State_highlight",
+            "value": 0.8
+          },
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "State",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "Age Group",
+            "type": "ordinal",
+            "title": "Age Group"
+          },
+          {
+            "field": "Count",
+            "type": "quantitative",
+            "title": "Count"
+          }
+        ]
+      },
+      "title": "Distribution of Payment Count Across Age Groups by State"
+    },
+    {
+      "width": "container",
+      "height": 100,
+      "data": {
+        "values": [
+          {
+            "State": "Australian Capital Territory",
+            "Total": 25055
+          },
+          {
+            "State": "New South Wales",
+            "Total": 794935
+          },
+          {
+            "State": "Northern Territory",
+            "Total": 10710
+          },
+          {
+            "State": "Queensland",
+            "Total": 526545
+          },
+          {
+            "State": "South Australia",
+            "Total": 218345
+          },
+          {
+            "State": "Tasmania",
+            "Total": 72165
+          },
+          {
+            "State": "Victoria",
+            "Total": 607855
+          },
+          {
+            "State": "Western Australia",
+            "Total": 248420
+          },
+          {
+            "State": "Total",
+            "Total": 2582990
+          }
+        ]
+      },
+      "mark": {
+        "type": "bar",
+        "color": "skyblue"
+      },
+      "encoding": {
+        "x": {
+          "field": "State",
+          "type": "nominal",
+          "title": "State",
+          "sort": "y"
+        },
+        "y": {
+          "field": "Total",
+          "type": "quantitative",
+          "title": "Total Population"
+        },
+        "tooltip": [
+          {
+            "field": "State",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "Total",
+            "type": "quantitative",
+            "title": "Total Count"
+          }
+        ]
+      },
+      "title": "Total Count by State"
+    }
+  ],
+  "config": {
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 16
+    },
+    "axis": {
+      "labelFontSize": 10,
+      "titleFontSize": 12
+    }
+  }
+}

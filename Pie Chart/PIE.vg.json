@@ -1,0 +1,754 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Pie chart showing the distribution of Male, Female, and Other using external data.",
+  "params": [
+    {
+      "value": "All Payments",
+      "name": "payment_type_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All Payments",
+          "ABSTUDY (Living Allowance)",
+          "ABSTUDY (Non-Living Allowance)",
+          "Age Pension",
+          "Austudy",
+          "Carer Allowance",
+          "Carer Allowance (Child Health Care Card only)",
+          "Carer Payment",
+          "Commonwealth Seniors Health Card",
+          "Disability Support Pension",
+          "Health Care Card",
+          "JobSeeker Payment",
+          "Low Income Card",
+          "Parenting Payment Partnered",
+          "Parenting Payment Single",
+          "Pension Concession Card",
+          "Special Benefit",
+          "Youth Allowance (other)",
+          "Youth Allowance (student and apprentice)"
+        ],
+        "labels": [
+          "Show All",
+          "ABSTUDY (Living Allowance)",
+          "ABSTUDY (Non-Living Allowance)",
+          "Age Pension",
+          "Austudy",
+          "Carer Allowance",
+          "Carer Allowance (Child Health Care Card only)",
+          "Carer Payment",
+          "Commonwealth Seniors Health Card",
+          "Disability Support Pension",
+          "Health Care Card",
+          "JobSeeker Payment",
+          "Low Income Card",
+          "Parenting Payment Partnered",
+          "Parenting Payment Single",
+          "Pension Concession Card",
+          "Special Benefit",
+          "Youth Allowance (other)",
+          "Youth Allowance (student and apprentice)"
+        ],
+        "name": "Payment Type Selection: "
+      }
+    }
+  ],
+  "hconcat": [
+    {
+      "width": 55,
+      "height": 80,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/Pie%20Chart/Australian%20Capital%20Territory_data.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Male",
+            "Female"
+          ],
+          "as": [
+            "Gender",
+            "value"
+          ]
+        },
+        {
+          "filter": "datum['Payment type'] == payment_type_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "sum",
+              "field": "value",
+              "as": "TotalValue"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "calculate": "datum.value / datum.TotalValue * 100",
+          "as": "Percentage"
+        }
+      ],
+      "mark": {
+        "type": "arc"
+      },
+      "encoding": {
+        "theta": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#87CEFA",
+              "#FFB6C1"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Gender",
+            "type": "nominal"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Count"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage"
+          }
+        ]
+      },
+      "title": "Australian Capital Territory"
+    },
+    {
+      "width": 55,
+      "height": 80,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/Pie%20Chart/Northern%20Territory_data.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Male",
+            "Female"
+          ],
+          "as": [
+            "Gender",
+            "value"
+          ]
+        },
+        {
+          "filter": "datum['Payment type'] == payment_type_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "sum",
+              "field": "value",
+              "as": "TotalValue"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "calculate": "datum.value / datum.TotalValue * 100",
+          "as": "Percentage"
+        }
+      ],
+      "mark": {
+        "type": "arc"
+      },
+      "encoding": {
+        "theta": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#87CEFA",
+              "#FFB6C1"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Gender",
+            "type": "nominal"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Count"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage"
+          }
+        ]
+      },
+      "title": "Northern Territory"
+    },
+    {
+      "width": 55,
+      "height": 80,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/Pie%20Chart/Queensland_data.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Male",
+            "Female"
+          ],
+          "as": [
+            "Gender",
+            "value"
+          ]
+        },
+        {
+          "filter": "datum['Payment type'] == payment_type_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "sum",
+              "field": "value",
+              "as": "TotalValue"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "calculate": "datum.value / datum.TotalValue * 100",
+          "as": "Percentage"
+        }
+      ],
+      "mark": {
+        "type": "arc"
+      },
+      "encoding": {
+        "theta": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#87CEFA",
+              "#FFB6C1"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Gender",
+            "type": "nominal"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Count"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage"
+          }
+        ]
+      },
+      "title": "Queensland"
+    },
+    {
+      "width": 55,
+      "height": 80,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/Pie%20Chart/New%20South%20Wales_data.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Male",
+            "Female"
+          ],
+          "as": [
+            "Gender",
+            "value"
+          ]
+        },
+        {
+          "filter": "datum['Payment type'] == payment_type_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "sum",
+              "field": "value",
+              "as": "TotalValue"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "calculate": "datum.value / datum.TotalValue * 100",
+          "as": "Percentage"
+        }
+      ],
+      "mark": {
+        "type": "arc"
+      },
+      "encoding": {
+        "theta": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#87CEFA",
+              "#FFB6C1"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Gender",
+            "type": "nominal"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Count"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage"
+          }
+        ]
+      },
+      "title": "New South Wales"
+    },
+    {
+      "width": 55,
+      "height": 80,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/Pie%20Chart/Australia_data.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Male",
+            "Female"
+          ],
+          "as": [
+            "Gender",
+            "value"
+          ]
+        },
+        {
+          "filter": "datum['Payment type'] == payment_type_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "sum",
+              "field": "value",
+              "as": "TotalValue"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "calculate": "datum.value / datum.TotalValue * 100",
+          "as": "Percentage"
+        }
+      ],
+      "mark": {
+        "type": "arc"
+      },
+      "encoding": {
+        "theta": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#87CEFA",
+              "#FFB6C1"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Gender",
+            "type": "nominal"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Count"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage"
+          }
+        ]
+      },
+      "title": "Australia"
+    },
+    {
+      "width": 55,
+      "height": 80,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/Pie%20Chart/Victoria_data.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Male",
+            "Female"
+          ],
+          "as": [
+            "Gender",
+            "value"
+          ]
+        },
+        {
+          "filter": "datum['Payment type'] == payment_type_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "sum",
+              "field": "value",
+              "as": "TotalValue"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "calculate": "datum.value / datum.TotalValue * 100",
+          "as": "Percentage"
+        }
+      ],
+      "mark": {
+        "type": "arc"
+      },
+      "encoding": {
+        "theta": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#87CEFA",
+              "#FFB6C1"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Gender",
+            "type": "nominal"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Count"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage"
+          }
+        ]
+      },
+      "title": "Victoria"
+    },
+    {
+      "width": 55,
+      "height": 80,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/Pie%20Chart/South%20Australia_data.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Male",
+            "Female"
+          ],
+          "as": [
+            "Gender",
+            "value"
+          ]
+        },
+        {
+          "filter": "datum['Payment type'] == payment_type_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "sum",
+              "field": "value",
+              "as": "TotalValue"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "calculate": "datum.value / datum.TotalValue * 100",
+          "as": "Percentage"
+        }
+      ],
+      "mark": {
+        "type": "arc"
+      },
+      "encoding": {
+        "theta": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#87CEFA",
+              "#FFB6C1"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Gender",
+            "type": "nominal"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Count"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage"
+          }
+        ]
+      },
+      "title": "South Australia"
+    },
+    {
+      "width": 55,
+      "height": 80,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/Pie%20Chart/Tasmania_data.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Male",
+            "Female"
+          ],
+          "as": [
+            "Gender",
+            "value"
+          ]
+        },
+        {
+          "filter": "datum['Payment type'] == payment_type_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "sum",
+              "field": "value",
+              "as": "TotalValue"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "calculate": "datum.value / datum.TotalValue * 100",
+          "as": "Percentage"
+        }
+      ],
+      "mark": {
+        "type": "arc"
+      },
+      "encoding": {
+        "theta": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#87CEFA",
+              "#FFB6C1"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Gender",
+            "type": "nominal"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Count"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage"
+          }
+        ]
+      },
+      "title": "Tasmania"
+    },
+    {
+      "width": 55,
+      "height": 80,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/Pie%20Chart/Western%20Australia_data.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Male",
+            "Female"
+          ],
+          "as": [
+            "Gender",
+            "value"
+          ]
+        },
+        {
+          "filter": "datum['Payment type'] == payment_type_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "sum",
+              "field": "value",
+              "as": "TotalValue"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "calculate": "datum.value / datum.TotalValue * 100",
+          "as": "Percentage"
+        }
+      ],
+      "mark": {
+        "type": "arc"
+      },
+      "encoding": {
+        "theta": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#87CEFA",
+              "#FFB6C1"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Gender",
+            "type": "nominal"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Count"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Percentage"
+          }
+        ]
+      },
+      "title": "Western Australia"
+    }
+  ],
+  "config": {
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 10
+    },
+    "padding": {
+      "left": 20,
+      "top": 20,
+      "right": 50,
+      "bottom": 50
+    }
+  }
+}

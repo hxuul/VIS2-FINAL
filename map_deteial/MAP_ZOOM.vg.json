@@ -1,0 +1,222 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "_comment": "this is the world map section",
+  "width": "container",
+  "height": 500,
+  "title": "Total Social Service Payments by SA1 Regions in Australia",
+  "params": [
+    {
+      "name": "zoom_level",
+      "value": 30000,
+      "bind": {
+        "input": "select",
+        "options": [
+          3500,
+          10000,
+          20000,
+          30000,
+          40000,
+          50000,
+          60000
+        ],
+        "labels": [
+          "Zoom Level 3500",
+          "Zoom Level 10000",
+          "Zoom Level 20000",
+          "Zoom Level 30000",
+          "Zoom Level 40000",
+          "Zoom Level 50000",
+          "Zoom Level 60000"
+        ],
+        "name": "Zoom: "
+      }
+    },
+    {
+      "name": "center_to",
+      "value": [
+        145,
+        -37.95
+      ],
+      "bind": {
+        "input": "select",
+        "options": [
+          [
+            151.2093,
+            -33.8688
+          ],
+          [
+            145,
+            -37.95
+          ],
+          [
+            153.0251,
+            -27.4698
+          ],
+          [
+            138.6007,
+            -34.9285
+          ],
+          [
+            147.3240,
+            -42.8806
+          ],
+          [
+            149.1310,
+            -35.2809
+          ],
+          [
+            153.4000,
+            -28.0167
+          ],
+          [
+            115.8589,
+            -31.9503
+          ],
+          [
+            147.0136,
+            -42.8821
+          ],
+          [
+            138.5957,
+            -34.9261
+          ]
+        ],
+        "labels": [
+          "Sydney (NSW)",
+          "Melbourne CBD (VIC)",
+          "Brisbane (QLD)",
+          "Adelaide (SA)",
+          "Hobart (TAS)",
+          "Canberra (ACT)",
+          "Gold Coast (QLD)",
+          "Greater Perth (WA)",
+          "Greater Hobart (TAS)",
+          "Greater Adelaide (SA)"
+        ],
+        "name": "Map Centre: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "equirectangular",
+    "center": {
+      "expr": "center_to"
+    },
+    "scale": {
+      "expr": "zoom_level"
+    }
+  },
+  "layer": [
+    {
+      "_comment": "Layer for background",
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/VIS/map_deteial/SA1_2021_AUST_GDA2020.json",
+        "format": {
+          "type": "topojson",
+          "feature": "SA1_2021_AUST_GDA2020"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "'Data Not Available ' + datum.properties.SA2_NAME21",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "strokeWidth": 0.6
+      },
+      "encoding": {
+        "tooltip": {
+          "field": "note"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/VIS/map_deteial/SA1_2021_AUST_GDA2020.json",
+        "format": {
+          "type": "topojson",
+          "feature": "SA1_2021_AUST_GDA2020"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.SA2_CODE21",
+          "from": {
+            "key": "SA2",
+            "fields": [
+              "SA2",
+              "Total Count"
+            ],
+            "data": {
+              "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/VIS/map_deteial/Book3.csv",
+              "format": {
+                "type": "csv"
+              }
+            }
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape"
+      },
+      "encoding": {
+        "strokeWidth": {
+          "value": 0.6
+        },
+        "color": {
+          "field": "Total Count",
+          "type": "quantitative",
+          "title": "Count",
+          "scale": {
+            "domain": [
+              1,
+              2000,
+              4000,
+              6000,
+              8000
+            ],
+            "range": [
+              "#d9f0a3",
+              "#addd8e",
+              "#78c679",
+              "#31a354",
+              "#006837"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.SA2_NAME21",
+            "type": "nominal",
+            "title": "SA2 Name "
+          },
+          {
+            "field": "Total Count",
+            "type": "quantitative",
+            "title": "Count",
+            "format": ".2f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 16
+    },
+    "axis": {
+      "labelFontSize": 8,
+      "titleFontSize": 10
+    },
+    "padding": {
+      "left": 20,
+      "right": 20,
+      "top": 10,
+      "bottom": 10
+    }
+  }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Australia State Details</title>
+
+</head>
+
+<body>
+  <header id="header">
+    <nav class="links" style="--items: 5;">
+      <a href="index.html">Global</a>
+      <a href="pg1.html">Australian States</a>
+      <a href="pg2.html">State and Age</a>
+
+      <span class="line"></span>
+    </nav>
+  </header>
+  <h1>Australian Benficial Payment Data Visualization</h1>
+
+  <section class="overview">
+    <h2>Overview</h2>
+    <p style="font-size: 16px; line-height: 1.8;">
+      This new page introduces a more specific visualization that explores the relationship between payment types and
+      different Australian states. By analyzing payment data at the state level, this visualization aims to provide
+      insights into how social service benefits are distributed across various regions.
+      Users can interact with the chart to better understand the impact of each payment type, including how certain
+      benefits such as Age Pension or JobSeeker Payment may vary significantly from state to state. This breakdown
+      allows for a deeper analysis of regional differences and policy effectiveness at a localized level.
+    </p>
+  </section>
+  <main>
+
+    <!-- First -->
+    <div id="vis-container">
+      <VIS_Map_2 id="map"></VIS_Map_2>
+
+    </div>
+
+    <div class="description">
+      <h2>description</h2>
+      <!-- descriptive text here -->
+      <p style="font-size: 16px; line-height: 1.8;">
+        The map above represents the distribution of social service payments across Australian states in 2023. The data
+        is normalized, meaning the number of payments is shown per 10,000 people in each state rather than total counts,
+        to allow for easier comparison across regions of varying population sizes.
+        The darker areas indicate higher rates of payments per 10,000 population, highlighting areas where social
+        support services are more widely utilized. Users can select specific states to explore further breakdowns and
+        gain insights into the regional distribution of benefits across the country.
+      </p>
+    </div>
+
+
+    <!-- Second -->
+    <div id="vis-container">
+      <VIS_Map_2 id="map2"></VIS_Map_2>
+
+    </div>
+
+    <div class="description">
+      <h2>description</h2>
+      <p style="font-size: 16px; line-height: 1.8;">
+        The map on the left illustrates the total social service payments across SA1 regions in Australia. Each region
+        is
+        color-coded based on the count of payments, with darker shades of green indicating higher payment counts. The
+        interactive nature of the map allows users to zoom in and out to view different levels of detail. Additionally,
+        users can select different locations, such as major cities, to focus on specific areas. This functionality helps
+        to better explore regional distribution patterns, and provides detailed payment information for each SA1 region,
+        as seen in the tooltip displaying data for Pearcedale - Tooradin.
+      </p>
+    </div>
+
+
+
+
+    <!-- Third -->
+    <div id="vis-container">
+      <VIS_PIE id="pie"></VIS_PIE>
+    </div>
+
+    <div class="description">
+      <h2>description</h2>
+
+      <p style="font-size: 16px; line-height: 1.8;">
+        This visualization shows gender distribution (Male and Female) across different Australian states and
+        territories based on social service payments. Each pie chart represents the proportion of male and female
+        recipients within the selected payment category for regions such as the Australian Capital Territory, Northern
+        Territory, Queensland, and others. The gender is color-coded: blue for Female and pink for Male, allowing a
+        clear comparison of gender balance in payment distribution. Users can also select different payment types using
+        the dropdown for further analysis.
+      </p>
+    </div>
+
+
+  </main>
+
+
+  <!-- Embedding the Vega visualizations -->
+  <script>
+    vegaEmbed("#map", "pg1/PAYMENT MAP.vg.json");
+    vegaEmbed("#map2", "map_deteial/MAP_ZOOM.vg.json");
+    vegaEmbed("#pie", "Pie Chart/PIE.vg.json");
+
+  </script>
+
+  <footer>
+    © 2024 Australian Benficial Payment Data Visualization | Data sourced from NASA's MODIS
+  </footer>
+
+</body>
+
+
+</html>

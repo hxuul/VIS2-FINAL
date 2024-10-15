@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Pie chart showing the distribution of Male, Female, and Other using external data.",
+  "width": "container",
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/VIS/bar%20chart_2/earnings_update.csv"
+  },
+  "mark": {
+    "type": "bar",
+    "size": 15
+  },
+  "encoding": {
+    "x": {
+      "field": "Payment type",
+      "type": "nominal",
+      "title": "Payment type",
+      "sort": "-y",
+      "axis": {
+        "labelAngle": -45
+      }
+    },
+    "y": {
+      "field": "No earnings rate",
+      "type": "quantitative",
+      "title": "Total Count",
+      "scale": {
+        "type": "linear"
+      },
+      "axis": {
+        "format": ".0%"
+      }
+    },
+    "opacity": {
+      "value": 0.8
+    },
+    "tooltip": [
+      {
+        "field": "Payment type",
+        "type": "nominal",
+        "title": "Payment Type"
+      },
+      {
+        "field": "No earnings rate",
+        "type": "quantitative",
+        "title": "Percentage",
+        "format": ".2%"
+      }
+    ]
+  },
+  "title": {
+    "text": "No earning Rate",
+    "anchor": "middle"
+  },
+  "config": {
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 16
+    },
+    "axis": {
+      "labelFontSize": 8,
+      "titleFontSize": 10
+    },
+    "padding": {
+      "left": 20,
+      "right": 20,
+      "top": 10,
+      "bottom": 10
+    }
+  }
+}

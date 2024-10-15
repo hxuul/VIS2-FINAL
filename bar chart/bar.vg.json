@@ -1,0 +1,199 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Pie chart showing the distribution of Male, Female, and Other using external data.",
+  "vconcat": [
+    {
+      "width": "container",
+      "height": 550,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/VIS/bar%20chart/payment_duration_updated.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Under 1 year",
+            "1-<2 years",
+            "2-<5 years",
+            "5-<10 years",
+            "10 years+"
+          ],
+          "as": [
+            "Duration",
+            "Count"
+          ]
+        },
+        {
+          "filter": "datum.Count > 0"
+        }
+      ],
+      "params": [
+        {
+          "name": "duration_highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "Duration"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
+      "mark": {
+        "type": "bar",
+        "size": 45
+      },
+      "encoding": {
+        "x": {
+          "field": "Payment type",
+          "type": "nominal",
+          "title": null,
+          "axis": null,
+          "sort": "-y"
+        },
+        "y": {
+          "field": "Count",
+          "type": "quantitative",
+          "title": "Total Count",
+          "scale": {
+            "type": "linear"
+          },
+          "axis": {
+            "format": "e"
+          },
+          "sort": [
+            "10 years+",
+            "5-<10 years",
+            "2-<5 years",
+            "1-<2 years",
+            "Under 1 year"
+          ]
+        },
+        "color": {
+          "field": "Duration",
+          "scale": {
+            "domain": [
+              "Under 1 year",
+              "1-<2 years",
+              "2-<5 years",
+              "5-<10 years",
+              "10 years+"
+            ],
+            "range": [
+              "#addd8e",
+              "#78c679",
+              "#41ab5d",
+              "#238443",
+              "#006837"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "duration_highlight",
+            "value": 0.8
+          },
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "Payment type",
+            "type": "nominal",
+            "title": "Payment Type"
+          },
+          {
+            "field": "Duration",
+            "type": "nominal",
+            "title": "Duration"
+          },
+          {
+            "field": "Count",
+            "type": "quantitative",
+            "title": "Total Count"
+          },
+          {
+            "field": "Average duration on payment (weeks)",
+            "type": "quantitative",
+            "title": "Average (weeks)"
+          }
+        ]
+      }
+    },
+    {
+      "width": "container",
+      "height": 100,
+      "data": {
+        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/VIS/bar%20chart/payment_duration_updated.csv"
+      },
+      "mark": {
+        "type": "bar",
+        "color": "skyblue",
+        "size": 45
+      },
+      "encoding": {
+        "x": {
+          "field": "Payment type",
+          "type": "nominal",
+          "title": "payment type",
+          "axis": {
+            "labelAngle": -45
+          },
+          "sort": [
+            "Age Pension",
+            "JobSeeker Payment",
+            "Disability Pension",
+            "Parenting Pay 2",
+            "Carer Payment",
+            "Youth Allowance 2",
+            "Youth Allowance 1",
+            "Parenting Pay 1",
+            "Austudy",
+            "ABSTUDY 2",
+            "ABSTUDY 1",
+            "Special Benefit"
+          ]
+        },
+        "y": {
+          "field": "Average duration on payment (weeks)",
+          "type": "quantitative",
+          "title": "Average Duration",
+          "scale": {
+            "reverse": true
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Payment type",
+            "type": "nominal",
+            "title": "Payment Type"
+          },
+          {
+            "field": "Average duration on payment (weeks)",
+            "type": "quantitative",
+            "title": "Average Duration (weeks)"
+          }
+        ]
+      }
+    }
+  ],
+  "spacing": 3,
+  "title": {
+    "text": "Duration Bar Chart",
+    "anchor": "middle"
+  },
+  "config": {
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 16
+    },
+    "axis": {
+      "labelFontSize": 8,
+      "titleFontSize": 10
+    },
+    "padding": {
+      "left": 20,
+      "right": 20,
+      "top": 10,
+      "bottom": 10
+    }
+  }
+}

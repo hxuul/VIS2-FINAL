@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Australia State Details</title>
+
+</head>
+
+<body>
+  <header id="header">
+    <nav class="links" style="--items: 5;">
+      <a href="index.html">Global</a>
+      <a href="pg1.html">Australian States</a>
+      <a href="pg2.html">State and Age</a>
+
+      <span class="line"></span>
+    </nav>
+  </header>
+  <h1>Australian Benficial Payment Data Visualization</h1>
+  <main>
+
+
+
+    <!-- The first vis -->
+    <div id="vis-container">
+      <VIS_Area id="area1"></VIS_Area>
+
+    </div>
+    <div class="description">
+      <h2>description</h2>
+
+      <p style="font-size: 16px; line-height: 1.8;">The first visualization illustrates the <strong>Distribution of
+          Payment Types Across Age Groups</strong>. It breaks down various social service payment types such as
+        <strong>Age Pension</strong>, <strong>Commonwealth Rent Assistance</strong>, <strong>Pension Concession
+          Card</strong>, and others, showing their distribution across different age groups. The graph highlights that
+        the largest number of beneficiaries falls within the <strong>65 and over</strong> category, with <strong>Age
+          Pension</strong> dominating that segment.
+      </p>
+
+
+
+
+    </div>
+
+    <!-- The Second vis -->
+
+
+
+
+
+
+
+
+
+    <!-- The Third vis -->
+    <div id="vis-container">
+      <VIS_Area2 id="area2"></VIS_Area2>
+    </div>
+
+    <div class="description">
+      <h2>description</h2>
+
+      <p style="font-size: 16px; line-height: 1.8;">The second visualization shows the <strong>Distribution of Payment
+          Count Across Age Groups by State</strong>, with an additional <strong>Total Count by State</strong>. The upper
+        area chart represents how different age groups are distributed across Australian states. It demonstrates a
+        concentration of older age groups in the 70-74 and 75-79 brackets, with a sharp decline in the population count
+        as the age increases to 90 and over. The <strong>Total Count by State</strong> bar chart below shows that
+        <strong>New South Wales</strong> and <strong>Victoria</strong> have the highest overall counts of payment
+        recipients, while smaller states and territories like <strong>Northern Territory</strong> and
+        <strong>Tasmania</strong> show relatively lower total counts.</p>
+
+
+
+    </div>
+
+  </main>
+
+
+  <!-- Embedding the Vega visualizations -->
+  <script>
+    vegaEmbed("#area1", "age/area.vg.json");
+    vegaEmbed("#area2", "age/area2.vg.json");
+
+  </script>
+
+  <footer>
+    © 2024 Australian Benficial Payment Data Visualization | Data sourced from NASA's MODIS
+  </footer>
+
+</body>
+
+<body>
+  <div id="map"></div>
+
+
+</body>
+
+</html>

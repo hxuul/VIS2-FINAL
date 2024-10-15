@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato:300,400,700');
+
+
+
+h1 {
+  margin-top: 10px;
+  text-align: center;
+  color: #004a99;
+  /* Matches the header bar color */
+}
+
+.description {
+  margin-left: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+#vis-container {
+  width: 70%;
+  max-width: 100%;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  border: 3px solid #ddd;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.description {
+  width: 24%;
+  max-width: 100%;
+  padding: 0px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+VIS_Map {
+  width: 85%;
+  /* Make the map fill the container */
+  height: auto;
+  /* Maintain the aspect ratio */
+  max-width: 100%;
+  /* Ensure the map doesn't exceed the container width */
+  display: block;
+  /* Remove extra spacing */
+}
+
+VIS_Bar {
+  width: 15%;
+  /* Make the map fill the container */
+  height: auto;
+  /* Maintain the aspect ratio */
+  max-width: 85%;
+  /* Ensure the map doesn't exceed the container width */
+  display: block;
+  /* Remove extra spacing */
+}
+
+VIS_IN {
+  width: 100%;
+  /* Make the map fill the container */
+  height: auto;
+  /* Maintain the aspect ratio */
+  max-width: 90%;
+  /* Ensure the map doesn't exceed the container width */
+  display: block;
+  padding-left: 3%;
+  /* Remove extra spacing */
+}
+
+VIS_Map_2 {
+  width: 100%;
+  /* Make the map fill the container */
+  height: auto;
+  /* Maintain the aspect ratio */
+  max-width: 110%;
+  /* Ensure the map doesn't exceed the container width */
+  display: block;
+  /* Remove extra spacing */
+}
+
+VIS_PIE {
+  width: 20%;
+  /* Make the map fill the container */
+  height: 20%;
+  /* Maintain the aspect ratio */
+  max-width: 20%;
+  /* Ensure the map doesn't exceed the container width */
+  display: block;
+  /* Remove extra spacing */
+}
+
+VIS_Area {
+  width: 100%;
+  /* Make the map fill the container */
+  height: auto;
+  /* Maintain the aspect ratio */
+  max-width: 100%;
+  /* Ensure the map doesn't exceed the container width */
+  display: block;
+  /* Remove extra spacing */
+}
+
+VIS_Area2 {
+  width: 80%;
+  /* Make the map fill the container */
+  height: auto;
+  /* Maintain the aspect ratio */
+  max-width: 80%;
+  /* Ensure the map doesn't exceed the container width */
+  display: block;
+  /* Remove extra spacing */
+}
+
+#bar {
+  width: 100%;
+
+}
+
+.zoom-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.zoom-label {
+  padding-right: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  /* Slightly smaller font for better readability */
+}
+
+footer a {
+  color: #FFD700;
+  /* Link color to stand out */
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  /* Add underline on hover for better UX */
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.open-modal-btn {
+  background-color: #4CAF50;
+  /* Green */
+  color: white;
+  padding: 5px 10px;
+  /* Reduced padding for smaller size */
+  padding-left: 20px;
+  /* Add extra padding on the left */
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  /* Smaller font size */
+  border-radius: 4px;
+  /* Optional: add rounded corners */
+}
+
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  /* Center horizontally */
+  position: relative;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Adjust width as needed */
+  max-width: 1100px;
+  /* Set a max-width for better control */
+  top: 50%;
+  /* Position from the top */
+  transform: translateY(-50%);
+  /* Center vertically */
+  max-height: 80vh;
+  /* Keep it from overflowing the screen */
+  overflow-y: auto;
+  /* Add vertical scroll if necessary */
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* New  */
+body {
+
+  padding-top: 60px;
+  /* Adjust this value based on the height of your fixed header */
+
+  font-family: 'Lato', sans-serif;
+
+  box-sizing: border-box;
+}
+
+code {
+  background: #fff1;
+  font-family: 'Inconsolata', monospace;
+  padding: .2em .4em;
+}
+
+.content {
+  background-color: #fff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #666;
+  font-size: 1.6em;
+  line-height: 1.4em;
+  margin: 20px auto;
+  margin-top: 80px;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.content ul {
+  margin: .5em 2em;
+  padding: 0;
+}
+
+
+
+
+/* Navbar */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 10px;
+}
+
+.links {
+  background-color: white;
+  border-bottom: 1px solid #0003;
+  box-shadow: 0 0 32px #0003;
+  font-size: 1em;
+  font-weight: 300;
+  display: flex;
+  /* Change from grid to flexbox for better alignment control */
+  justify-content: center;
+  /* Center the links horizontally */
+  position: relative;
+  padding: 0;
+  /* Remove any padding */
+  margin: 0;
+  /* Remove any margin */
+}
+
+.links>a {
+  color: rgb(120, 171, 223);
+  padding: 0.75em 1em;
+  /* Reduce padding for better fit */
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s;
+  flex: 1;
+  /* Ensure the links take up equal space */
+}
+
+.links>a:hover {
+  background: #00000006;
+  color: rgb(178, 191, 199);
+}
+
+.links>.line {
+  background: #68a;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  left: var(--left, calc(100% / var(--items) * (var(--index) - 1)));
+  width: var(--width, calc(100% / var(--items)));
+  --index: 0;
+  transition: all 0.5s;
+}
+
+.links>a:hover~.line {
+  opacity: 1;
+}
+
+/* Control hover line positions */
+.links>a:nth-of-type(1):hover~.line {
+  --index: 1;
+}
+
+.links>a:nth-of-type(2):hover~.line {
+  --index: 2;
+}
+
+.links>a:nth-of-type(3):hover~.line {
+  --index: 3;
+}
+
+.links>a:nth-of-type(4):hover~.line {
+  --index: 4;
+}
+
+.links>a:nth-of-type(5):hover~.line {
+  --index: 5;
+}

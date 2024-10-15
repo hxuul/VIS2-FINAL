@@ -1,0 +1,190 @@
+Payment type,Age Group,Count
+ABSTUDY (Living Allowance),Under 16,715
+ABSTUDY (Non-Living Allowance),Under 16,13630
+Age Pension,Under 16,0
+Austudy,Under 16,0
+Carer Allowance,Under 16,15
+Carer Allowance (Child Health Care Card only),Under 16,0
+Carer Payment,Under 16,5
+Commonwealth Rent Assistance,Under 16,300
+Commonwealth Seniors Health Card,Under 16,0
+Disability Support Pension,Under 16,0
+Family Tax Benefit A,Under 16,60
+Family Tax Benefit B,Under 16,60
+Health Care Card,Under 16,3150
+JobSeeker Payment,Under 16,0
+Low Income Card,Under 16,280
+Parenting Payment Partnered,Under 16,0
+Parenting Payment Single,Under 16,75
+Pension Concession Card,Under 16,75
+Special Benefit,Under 16,805
+Youth Allowance (other),Under 16,5
+Youth Allowance (student and apprentice),Under 16,5
+ABSTUDY (Living Allowance),16-20,3240
+ABSTUDY (Non-Living Allowance),16-20,2040
+Age Pension,16-20,0
+Austudy,16-20,0
+Carer Allowance,16-20,2130
+Carer Allowance (Child Health Care Card only),16-20,5
+Carer Payment,16-20,2070
+Commonwealth Rent Assistance,16-20,21190
+Commonwealth Seniors Health Card,16-20,0
+Disability Support Pension,16-20,23940
+Family Tax Benefit A,16-20,8225
+Family Tax Benefit B,16-20,8070
+Health Care Card,16-20,139300
+JobSeeker Payment,16-20,0
+Low Income Card,16-20,13415
+Parenting Payment Partnered,16-20,1195
+Parenting Payment Single,16-20,5805
+Pension Concession Card,16-20,38255
+Special Benefit,16-20,125
+Youth Allowance (other),16-20,66405
+Youth Allowance (student and apprentice),16-20,56410
+ABSTUDY (Living Allowance),21-24,1480
+ABSTUDY (Non-Living Allowance),21-24,975
+Age Pension,21-24,0
+Austudy,21-24,0
+Carer Allowance,21-24,5645
+Carer Allowance (Child Health Care Card only),21-24,95
+Carer Payment,21-24,4955
+Commonwealth Rent Assistance,21-24,61595
+Commonwealth Seniors Health Card,21-24,0
+Disability Support Pension,21-24,30535
+Family Tax Benefit A,21-24,41660
+Family Tax Benefit B,21-24,39160
+Health Care Card,21-24,153425
+JobSeeker Payment,21-24,72270
+Low Income Card,21-24,15675
+Parenting Payment Partnered,21-24,5240
+Parenting Payment Single,21-24,24460
+Pension Concession Card,21-24,78975
+Special Benefit,21-24,140
+Youth Allowance (other),21-24,19095
+Youth Allowance (student and apprentice),21-24,57165
+ABSTUDY (Living Allowance),25-34,1300
+ABSTUDY (Non-Living Allowance),25-34,1310
+Age Pension,25-34,0
+Austudy,25-34,14275
+Carer Allowance,25-34,52420
+Carer Allowance (Child Health Care Card only),25-34,1775
+Carer Payment,25-34,28915
+Commonwealth Rent Assistance,25-34,222990
+Commonwealth Seniors Health Card,25-34,0
+Disability Support Pension,25-34,85530
+Family Tax Benefit A,25-34,344930
+Family Tax Benefit B,25-34,293795
+Health Care Card,25-34,274360
+JobSeeker Payment,25-34,177475
+Low Income Card,25-34,20475
+Parenting Payment Partnered,25-34,27885
+Parenting Payment Single,25-34,126820
+Pension Concession Card,25-34,296375
+Special Benefit,25-34,845
+Youth Allowance (other),25-34,0
+Youth Allowance (student and apprentice),25-34,8270
+ABSTUDY (Living Allowance),35-44,390
+ABSTUDY (Non-Living Allowance),35-44,665
+Age Pension,35-44,0
+Austudy,35-44,3910
+Carer Allowance,35-44,127280
+Carer Allowance (Child Health Care Card only),35-44,3795
+Carer Payment,35-44,53325
+Commonwealth Rent Assistance,35-44,246540
+Commonwealth Seniors Health Card,35-44,0
+Disability Support Pension,35-44,99880
+Family Tax Benefit A,35-44,520050
+Family Tax Benefit B,35-44,401340
+Health Care Card,35-44,306800
+JobSeeker Payment,35-44,145605
+Low Income Card,35-44,13680
+Parenting Payment Partnered,35-44,20310
+Parenting Payment Single,35-44,111145
+Pension Concession Card,35-44,322290
+Special Benefit,35-44,910
+Youth Allowance (other),35-44,0
+Youth Allowance (student and apprentice),35-44,0
+ABSTUDY (Living Allowance),45-54,235
+ABSTUDY (Non-Living Allowance),45-54,430
+Age Pension,45-54,0
+Austudy,45-54,1845
+Carer Allowance,45-54,136865
+Carer Allowance (Child Health Care Card only),45-54,1970
+Carer Payment,45-54,68735
+Commonwealth Rent Assistance,45-54,200030
+Commonwealth Seniors Health Card,45-54,0
+Disability Support Pension,45-54,156555
+Family Tax Benefit A,45-54,287615
+Family Tax Benefit B,45-54,207190
+Health Care Card,45-54,211515
+JobSeeker Payment,45-54,163640
+Low Income Card,45-54,13555
+Parenting Payment Partnered,45-54,2495
+Parenting Payment Single,45-54,35815
+Pension Concession Card,45-54,348185
+Special Benefit,45-54,465
+Youth Allowance (other),45-54,0
+Youth Allowance (student and apprentice),45-54,0
+ABSTUDY (Living Allowance),55-64,115
+ABSTUDY (Non-Living Allowance),55-64,135
+Age Pension,55-64,0
+Austudy,55-64,705
+Carer Allowance,55-64,127110
+Carer Allowance (Child Health Care Card only),55-64,310
+Carer Payment,55-64,84455
+Commonwealth Rent Assistance,55-64,166310
+Commonwealth Seniors Health Card,55-64,0
+Disability Support Pension,55-64,249065
+Family Tax Benefit A,55-64,51540
+Family Tax Benefit B,55-64,36325
+Health Care Card,55-64,113595
+JobSeeker Payment,55-64,192940
+Low Income Card,55-64,34520
+Parenting Payment Partnered,55-64,480
+Parenting Payment Single,55-64,4745
+Pension Concession Card,55-64,495030
+Special Benefit,55-64,475
+Youth Allowance (other),55-64,0
+Youth Allowance (student and apprentice),55-64,0
+ABSTUDY (Living Allowance),65 and over,10
+ABSTUDY (Non-Living Allowance),65 and over,20
+Age Pension,65 and over,2582990
+Austudy,65 and over,90
+Carer Allowance,65 and over,195255
+Carer Allowance (Child Health Care Card only),65 and over,125
+Carer Payment,65 and over,64525
+Commonwealth Rent Assistance,65 and over,376050
+Commonwealth Seniors Health Card,65 and over,519260
+Disability Support Pension,65 and over,143280
+Family Tax Benefit A,65 and over,13430
+Family Tax Benefit B,65 and over,10835
+Health Care Card,65 and over,69095
+JobSeeker Payment,65 and over,54790
+Low Income Card,65 and over,48690
+Parenting Payment Partnered,65 and over,85
+Parenting Payment Single,65 and over,505
+Pension Concession Card,65 and over,2780905
+Special Benefit,65 and over,2810
+Youth Allowance (other),65 and over,0
+Youth Allowance (student and apprentice),65 and over,0
+ABSTUDY (Living Allowance),Total,7485
+ABSTUDY (Non-Living Allowance),Total,19210
+Age Pension,Total,2582990
+Austudy,Total,20820
+Carer Allowance,Total,646720
+Carer Allowance (Child Health Care Card only),Total,8080
+Carer Payment,Total,306985
+Commonwealth Rent Assistance,Total,1295005
+Commonwealth Seniors Health Card,Total,519260
+Disability Support Pension,Total,788785
+Family Tax Benefit A,Total,1267510
+Family Tax Benefit B,Total,996785
+Health Care Card,Total,1271240
+JobSeeker Payment,Total,806715
+Low Income Card,Total,160290
+Parenting Payment Partnered,Total,57685
+Parenting Payment Single,Total,309370
+Pension Concession Card,Total,4360090
+Special Benefit,Total,6565
+Youth Allowance (other),Total,85505
+Youth Allowance (student and apprentice),Total,121850

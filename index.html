@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Australian Benficial Payment Data Visualization</title>
+
+</head>
+
+<body>
+    <header id="header">
+        <nav class="links" style="--items: 5;">
+            <a href="index.html">Global</a>
+            <a href="pg1.html">Australian States</a>
+            <a href="pg2.html">State and Age</a>
+
+            <span class="line"></span>
+        </nav>
+    </header>
+    <h1>Australian Benficial Payment Data Visualization</h1>
+    <section class="overview">
+        <h2>Overview</h2>
+        <p style="font-size: 16px; line-height: 1.6;">
+            The DSS Benefit and Payment Recipient Demographics dataset provides detailed insights into the distribution
+            of social service payments across Australia. Compiled and updated quarterly by the Department of Social
+            Services (DSS), this dataset covers various payment types, including the Age Pension, Carer Payment,
+            JobSeeker Payment, Youth Allowance, and many more.
+        </p>
+        <p style="font-size: 16px; line-height: 1.6;">
+            The data is categorized by key demographics such as age, gender, and Indigenous/non-Indigenous status,
+            offering a granular view of how social service benefits are distributed across different population
+            segments.
+            Additionally, the dataset includes geographic breakdowns by state/territory, postcode, Local Government
+            Areas
+            (LGAs), and SA2 regions (small statistical areas).
+        </p>
+        <p style="font-size: 16px; line-height: 1.6;">
+            The visualizations in this report aim to highlight the regional distribution of payment recipients across
+            Australia, explore the demographic trends in benefit recipients, and provide insights into how different
+            social services are utilized by various population segments.
+        </p>
+    </section>
+    <main>
+        <div id="vis-container">
+            <VIS_Map id="map"></VIS_Map>
+
+        </div>
+        <div class=" description">
+            <h2>description</h2>
+
+            <!-- descriptive text here -->
+            <p style="font-size: 20px; line-height: 1.8; margin-bottom: 15px;">
+                This visualization provides a global overview of the distribution of social service payments per 10,000
+                population.
+                While the data appears to show that Australia has the highest payment count, it's essential to note that
+                the figures
+                are normalized per capita. In reality, countries with larger populations, such as China, have higher
+                total payment
+                counts, but this visualization adjusts the numbers to account for population size, making the payments
+                comparable
+                across different regions.
+            </p>
+            <p style="font-size: 20px; line-height: 1.8; margin-bottom: 15px;">
+                Additionally, by selecting a country on the map, you can view detailed information about that country's
+                specific
+                payment data. This interactive feature allows for deeper exploration of each region’s data, making it
+                easier to
+                compare social service distributions globally.
+
+
+            </p>
+            <p style="font-size: 20px; line-height: 1.8; margin-bottom: 15px;color: red;">
+
+
+                SELECT BOTTOM BELOW TO SEE DETAILS ABOUT PAYMENT
+            </p>
+            <button class="open-modal-btn" id="openModal">Show Payment Information</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p style="font-size: 15px; line-height: 1.8;">
+                        <strong>ABSTUDY 1:</strong> Provides financial assistance to Indigenous Australian students
+                        and
+                        apprentices to help with living costs while studying or training.<br>
+                        <strong>ABSTUDY 2:</strong> Offers support for education-related expenses other than living
+                        costs to Indigenous Australian students, such as school fees and educational materials.<br>
+                        <strong>Age Pension:</strong> Income support for older Australians who have reached the
+                        qualifying age to assist with basic living expenses during retirement.<br>
+                        <strong>Austudy:</strong> Financial assistance for full-time students and apprentices aged
+                        25 or
+                        over to help with living costs while they study or train.<br>
+                        <strong>Carer Allowance 1:</strong> A supplementary payment for people who provide
+                        additional
+                        daily care and attention to someone with a disability or medical condition.<br>
+                        <strong>Carer Allowance 2:</strong> Provides a Health Care Card for carers of children under
+                        16
+                        with a disability or medical condition, giving access to concessions and reduced-cost
+                        medicines.<br>
+                        <strong>Carer Payment:</strong> Income support for individuals who are unable to work
+                        full-time
+                        because they care for someone with a severe disability, illness, or frailty due to age.<br>
+                        <strong>Rent Assistance:</strong> A non-taxable income supplement to help eligible people
+                        who
+                        rent in the private market or community housing with their rental costs.<br>
+                        <strong>Seniors Health Card:</strong> Provides access to cheaper health care and some
+                        discounts
+                        for self-funded retirees of pension age who do not qualify for the Age Pension.<br>
+                        <strong>Disability Pension:</strong> Financial support for people with a permanent physical,
+                        intellectual, or psychiatric condition that prevents them from working.<br>
+                        <strong>Family Benefit A:</strong> Assistance to families with the cost of raising children,
+                        paid per child based on age and family income.<br>
+                        <strong>Family Benefit B:</strong> Additional assistance for single-parent families and
+                        families
+                        with one main income earner to help with the cost of raising children.<br>
+                        <strong>Health Care Card:</strong> Provides access to reduced-cost prescription medicines
+                        and
+                        other concessions to eligible low-income earners and recipients of certain government
+                        payments.<br>
+                        <strong>JobSeeker Payment:</strong> Financial help for people aged 22 and over who are
+                        unemployed or temporarily unable to work due to illness or injury.<br>
+                        <strong>Low Income Card:</strong> A concession card that offers reduced-cost medicines and
+                        other
+                        concessions to individuals and families on a low income.<br>
+                        <strong>Parenting Pay 1:</strong> Income support for partnered parents or guardians caring
+                        for
+                        young children, assisting with living expenses.<br>
+                        <strong>Parenting Pay 2:</strong> Income support for single parents or guardians with young
+                        children to help with living costs.<br>
+                        <strong>Pensioner Concession:</strong> Provides access to cheaper health services and
+                        medicines
+                        for eligible pensioners.<br>
+                        <strong>Special Benefit:</strong> Financial assistance for people in severe financial
+                        hardship
+                        who are not eligible for other income support payments.<br>
+                        <strong>Youth Allowance 1:</strong> Financial help for young people aged 16 to 21 who are
+                        looking for work, undertaking approved activities, or temporarily unable to work.<br>
+                        <strong>Youth Allowance 2:</strong> Financial assistance for full-time students and
+                        apprentices
+                        aged 16 to 24 to help with living costs while studying or training.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div id="vis-container">
+            <VIS_Bar id="bar"></VIS_Bar>
+        </div>
+        <div class="description">
+            <h2>description</h2>
+            <p style="font-size: 13px; line-height: 1.8; margin-bottom: 15px;">
+                In this visualization, we observe two key insights related to social service payments:
+                <br>
+                <strong>1. Duration of Payments by Payment Type:</strong><br>
+                The stacked bar chart on the left shows the total count of individuals receiving different types of
+                payments categorized by the duration they have been receiving these payments. The categories of duration
+                include:
+                <em>Under 1 year, 1-<2 years, 2-<5 years, 5-<10 years, and 10 years+</em>.
+                        <br>
+                        The <strong>Age Pension</strong> has the highest total count across all durations, with a large
+                        portion of recipients in the 10+ years category.
+                        <br>
+                        <strong>JobSeeker Payment, Disability Pension,</strong> and <strong>Carer Payment</strong> also
+                        show significant distributions, with most individuals in these categories receiving payments for
+                        1 to 2 years or more.
+                        <br><br>
+            </p>
+
+            <VIS_IN id="bar_in"></VIS_IN>
+            <p style="font-size: 13px; line-height: 1.8; margin-bottom: 15px;">
+                <strong>2. Rate of Earnings by Payment Type:</strong><br>
+                The bar chart on the right provides insights into the rate of earnings (or lack thereof) for recipients
+                of various payment types. Payments such as the <strong>Special Benefit, Disability Pension,</strong> and
+                <strong>Carer Payment</strong> show a high percentage of recipients with no earnings, while payments
+                like <strong>Youth Allowance</strong> and <strong>Parenting Pay</strong> show relatively lower
+                percentages of non-earners.
+                <br><br>
+                Comparing both, it is clear that some payment types (like Age Pension and Carer Payment) are
+                characterized by long-term recipients with little or no earnings, while other payments are more likely
+                to be short-term with a mix of earners and non-earners.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- Embedding the Vega visualizations -->
+    <script>
+        vegaEmbed("#map", "map2/WORLD MAP.vg.json").catch(console.error);
+        vegaEmbed("#bar", "bar chart/bar.vg.json").catch(console.error);
+        vegaEmbed("#bar_in", "bar chart_2/bar.vg.json").catch(console.error);
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("openModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <footer>
+        © 2024 Australian Beneficial Payment Data Visualization | Data sourced from the
+        <a href="https://data.gov.au/data/dataset/dss-payment-demographic-data" target="_blank"
+            style="color: #FFD700; text-decoration: none;">Australian Government's Department of Social Services</a>
+    </footer>
+
+</body>
+
+</html>

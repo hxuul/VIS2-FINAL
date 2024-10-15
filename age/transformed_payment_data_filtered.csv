@@ -1,0 +1,37 @@
+Payment type,Age Group,Count
+Age Pension,Under 16,0
+Commonwealth Rent Assistance,Under 16,300
+Pension Concession Card,Under 16,75
+Other,Under 16,18805
+Age Pension,16-20,0
+Commonwealth Rent Assistance,16-20,21190
+Pension Concession Card,16-20,38255
+Other,16-20,332375
+Age Pension,21-24,0
+Commonwealth Rent Assistance,21-24,61595
+Pension Concession Card,21-24,78975
+Other,21-24,471975
+Age Pension,25-34,0
+Commonwealth Rent Assistance,25-34,222990
+Pension Concession Card,25-34,296375
+Other,25-34,1460380
+Age Pension,35-44,0
+Commonwealth Rent Assistance,35-44,246540
+Pension Concession Card,35-44,322290
+Other,35-44,1809085
+Age Pension,45-54,0
+Commonwealth Rent Assistance,45-54,200030
+Pension Concession Card,45-54,348185
+Other,45-54,1288925
+Age Pension,55-64,0
+Commonwealth Rent Assistance,55-64,166310
+Pension Concession Card,55-64,495030
+Other,55-64,896515
+Age Pension,65 and over,2582990
+Commonwealth Rent Assistance,65 and over,376050
+Pension Concession Card,65 and over,2780905
+Other,65 and over,1122805
+Age Pension,Total,2582990
+Commonwealth Rent Assistance,Total,1295005
+Pension Concession Card,Total,4360090
+Other,Total,7400860
