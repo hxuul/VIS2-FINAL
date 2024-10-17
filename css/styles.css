@@ -84,13 +84,13 @@ VIS_Map_2 {
 }
 
 VIS_PIE {
-  width: 20%;
+  width: 1000;
   /* Make the map fill the container */
-  height: 20%;
+  height: auto;
   /* Maintain the aspect ratio */
-  max-width: 20%;
+  max-width: 100%;
   /* Ensure the map doesn't exceed the container width */
-  display: block;
+
   /* Remove extra spacing */
 }
 
@@ -321,8 +321,8 @@ code {
   opacity: 0;
   position: absolute;
   bottom: 0;
-  left: var(--left, calc(100% / var(--items) * (var(--index) - 1)));
-  width: var(--width, calc(100% / var(--items)));
+  left: var(--left, calc(166.5% / var(--items) * (var(--index) - 1)));
+  width: var(--width, calc(166.5% / var(--items)));
   --index: 0;
   transition: all 0.5s;
 }
@@ -344,10 +344,3 @@ code {
   --index: 3;
 }
 
-.links>a:nth-of-type(4):hover~.line {
-  --index: 4;
-}
-
-.links>a:nth-of-type(5):hover~.line {
-  --index: 5;
-}

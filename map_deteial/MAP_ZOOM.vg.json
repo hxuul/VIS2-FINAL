@@ -9,25 +9,10 @@
       "name": "zoom_level",
       "value": 30000,
       "bind": {
-        "input": "select",
-        "options": [
-          3500,
-          10000,
-          20000,
-          30000,
-          40000,
-          50000,
-          60000
-        ],
-        "labels": [
-          "Zoom Level 3500",
-          "Zoom Level 10000",
-          "Zoom Level 20000",
-          "Zoom Level 30000",
-          "Zoom Level 40000",
-          "Zoom Level 50000",
-          "Zoom Level 60000"
-        ],
+        "input": "range",
+        "min": 3500,
+        "max": 60000,
+        "step": 100,
         "name": "Zoom: "
       }
     },
@@ -68,14 +53,7 @@
             153.4000,
             -28.0167
           ],
-          [
-            115.8589,
-            -31.9503
-          ],
-          [
-            147.0136,
-            -42.8821
-          ],
+          
           [
             138.5957,
             -34.9261
@@ -89,8 +67,6 @@
           "Hobart (TAS)",
           "Canberra (ACT)",
           "Gold Coast (QLD)",
-          "Greater Perth (WA)",
-          "Greater Hobart (TAS)",
           "Greater Adelaide (SA)"
         ],
         "name": "Map Centre: "
