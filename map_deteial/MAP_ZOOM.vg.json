@@ -10,7 +10,7 @@
       "value": 30000,
       "bind": {
         "input": "range",
-        "min": 3500,
+        "min": 15000,
         "max": 60000,
         "step": 100,
         "name": "Zoom: "
@@ -82,103 +82,77 @@
       "expr": "zoom_level"
     }
   },
-  "layer": [
+
+    
+  "data": {
+    "url": "https://raw.githubusercontent.com/hxuul/VIS2-FINAL/refs/heads/main/map_deteial/SA2_2021_AUST_GDA2020.json",
+    "format": {
+      "type": "topojson",
+      "feature": "SA2_2021_AUST_GDA2020"
+    }
+  },
+  "transform": [
     {
-      "_comment": "Layer for background",
-      "data": {
-        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/VIS/map_deteial/SA1_2021_AUST_GDA2020.json",
-        "format": {
-          "type": "topojson",
-          "feature": "SA1_2021_AUST_GDA2020"
-        }
-      },
-      "transform": [
-        {
-          "calculate": "'Data Not Available ' + datum.properties.SA2_NAME21",
-          "as": "note"
-        }
-      ],
-      "mark": {
-        "type": "geoshape",
-        "fill": "lightgray",
-        "strokeWidth": 0.6
-      },
-      "encoding": {
-        "tooltip": {
-          "field": "note"
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/VIS/map_deteial/SA1_2021_AUST_GDA2020.json",
-        "format": {
-          "type": "topojson",
-          "feature": "SA1_2021_AUST_GDA2020"
-        }
-      },
-      "transform": [
-        {
-          "lookup": "properties.SA2_CODE21",
-          "from": {
-            "key": "SA2",
-            "fields": [
-              "SA2",
-              "Total Count"
-            ],
-            "data": {
-              "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/VIS/map_deteial/Book3.csv",
-              "format": {
-                "type": "csv"
-              }
-            }
+      "lookup": "properties.SA2_CODE21",
+      "from": {
+        "key": "SA2",
+        "fields": [
+          "SA2",
+          "Total Count"
+        ],
+        "data": {
+          "url": "https://raw.githubusercontent.com/hxuul/FIT3179-VIS-2/refs/heads/main/VIS/map_deteial/Book3.csv",
+          "format": {
+            "type": "csv"
           }
         }
-      ],
-      "mark": {
-        "type": "geoshape"
-      },
-      "encoding": {
-        "strokeWidth": {
-          "value": 0.6
-        },
-        "color": {
-          "field": "Total Count",
-          "type": "quantitative",
-          "title": "Count",
-          "scale": {
-            "domain": [
-              1,
-              2000,
-              4000,
-              6000,
-              8000
-            ],
-            "range": [
-              "#d9f0a3",
-              "#addd8e",
-              "#78c679",
-              "#31a354",
-              "#006837"
-            ]
-          }
-        },
-        "tooltip": [
-          {
-            "field": "properties.SA2_NAME21",
-            "type": "nominal",
-            "title": "SA2 Name "
-          },
-          {
-            "field": "Total Count",
-            "type": "quantitative",
-            "title": "Count",
-            "format": ".2f"
-          }
-        ]
       }
     }
   ],
+  "mark": {
+    "type": "geoshape"
+  },
+  "encoding": {
+    "strokeWidth": {
+      "value": 0.6
+    },
+    "color": {
+      "field": "Total Count",
+      "type": "quantitative",
+      "title": "Count",
+      "scale": {
+        "domain": [
+          1,
+          2000,
+          4000,
+          6000,
+          8000
+        ],
+        "range": [
+          "#d9f0a3",
+          "#addd8e",
+          "#78c679",
+          "#31a354",
+          "#006837"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "properties.SA2_NAME21",
+        "type": "nominal",
+        "title": "SA2 Name "
+      },
+      {
+        "field": "Total Count",
+        "type": "quantitative",
+        "title": "Count",
+        "format": ".2f"
+      }
+    ]
+  }
+    
+  ,
   "config": {
     "title": {
       "font": "sans-serif",

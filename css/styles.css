@@ -84,11 +84,11 @@ VIS_Map_2 {
 }
 
 VIS_PIE {
-  width: 1000;
+  width: 30%;
   /* Make the map fill the container */
   height: auto;
   /* Maintain the aspect ratio */
-  max-width: 100%;
+  max-width: 30%;
   /* Ensure the map doesn't exceed the container width */
 
   /* Remove extra spacing */
